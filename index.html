@@ -65,12 +65,9 @@
       }
 
       .second-hand {
-        background: linear-gradient(to right, rgb(255, 0, 0) 10%, rgb(145, 211, 255) 90%);));
+        background: linear-gradient(to right, rgb(255, 0, 0) 10%, rgb(145, 211, 255) 90%);
       }
 
-      .hour-hand {
-          height: 6px;
-      }
     </style>
 
     <script>
@@ -80,7 +77,6 @@
 
       function setDate() {
         const now = new Date();
-        console.log(now);
 
         const seconds = now.getSeconds();
         const secondsDegrees = (seconds / 60) * 360 + 90;
