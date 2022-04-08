@@ -27,12 +27,12 @@
       </div>
 
       <!-- Digital Clock -->
-      <div id="time">
+      <!-- <div id="time">
         <div id="hour" style="--clr: #5eff00">00</div>
         <div id="minutes" style="--clr: #d6aef0">00</div>
         <div id="seconds" style="--clr: #ff0000">00</div>
         <div id="ampm">00</div>
-      </div>
+      </div> -->
     </div>
 
     <script>
@@ -46,7 +46,7 @@
         let minute = day.getMinutes();
         let mm = day.getMinutes() * 6;
         let ss = day.getSeconds() * 6;
-        hr.style.transform = `rotateZ(${hh + (minute / 2)}deg)`;
+        hr.style.transform = `rotateZ(${hh + minute / 2}deg)`;
         mn.style.transform = `rotateZ(${mm}deg)`;
         sc.style.transform = `rotateZ(${ss}deg)`;
       }
