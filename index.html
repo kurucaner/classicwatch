@@ -36,23 +36,19 @@
     </div>
 
     <script>
-      const hr = document.querySelector("#hr");
-      const mn = document.querySelector("#mn");
-      const sc = document.querySelector("#sc");
+      let hr = document.querySelector("#hr");
+      let mn = document.querySelector("#mn");
+      let sc = document.querySelector("#sc");
 
       function setDate() {
-        const day = new Date();
-        const hh = day.getHours() * 30;
-        const mm = day.getMinutes();
-        const ss = day.getSeconds();
+        let day = new Date();
+        let hh = day.getHours() * 30;
+        let mm = day.getMinutes() * 6;
+        let ss = day.getSeconds() * 6;
 
-        const hourDegree = mm / 12;
-        const minDegree = mm * 6;
-        const secDegree = ss * 6;
-
-        hr.style.transform = `rotateZ(${hourDegree}deg)`;
-        mn.style.transform = `rotateZ(${minDegree}deg)`;
-        sc.style.transform = `rotateZ(${secDegree}deg)`;
+        hr.style.transform = `rotateZ(${mm / 12}deg)`;
+        mn.style.transform = `rotateZ(${mm}deg)`;
+        sc.style.transform = `rotateZ(${ss}deg)`;
       }
 
       setInterval(setDate, 1000);
