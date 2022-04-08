@@ -127,3 +127,36 @@ body {
   background: var(--clr);
   box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
 }
+
+/* Digital Starts */
+
+#time {
+  width: 50%;
+  display: flex;
+  padding: 10px 20px;
+  font-size: 2em;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 40px;
+}
+
+#time div {
+  position: relative;
+  width: 60px;
+  text-align: center;
+  color: var(--clr);
+}
+
+#time div:nth-child(1)::after,
+#time div:nth-child(2)::after {
+  content: ":";
+  position: absolute;
+  right: -10px;
+  color: #fff;
+}
+
+#time div:last-child {
+  font-size: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
