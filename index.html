@@ -46,9 +46,6 @@
         let minute = day.getMinutes();
         let mm = day.getMinutes() * 6;
         let ss = day.getSeconds() * 6;
-        console.log(hh)
-        console.log(hh + (minute / 2));
-        // console.log(day.getMinutes());
         hr.style.transform = `rotateZ(${hh + (minute / 2)}deg)`;
         mn.style.transform = `rotateZ(${mm}deg)`;
         sc.style.transform = `rotateZ(${ss}deg)`;
