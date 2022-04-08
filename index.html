@@ -6,106 +6,42 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="clock">
-      <div class="clock-face">
-        <div class="hand hour-hand"></div>
-        <div class="hand min-hand"></div>
-        <div class="hand second-hand"></div>
+    <div class="container">
+      <div class="clock">
+        <div class="circle" id="sc" style="--clr: #5eff00;"><i></i></div>
+        <div class="circle circle2" id="mn" style="--clr: #d6aef0;"><i></i></div>
+        <div class="circle circle3" id="hr" style="--clr: #ff0000;"><i></i></div>
+
+        <span style="--i: 1"><b>1</b></span>
+        <span style="--i: 2"><b>2</b></span>
+        <span style="--i: 3"><b>3</b></span>
+        <span style="--i: 4"><b>4</b></span>
+        <span style="--i: 5"><b>5</b></span>
+        <span style="--i: 6"><b>6</b></span>
+        <span style="--i: 7"><b>7</b></span>
+        <span style="--i: 8"><b>8</b></span>
+        <span style="--i: 9"><b>9</b></span>
+        <span style="--i: 10"><b>10</b></span>
+        <span style="--i: 11"><b>11</b></span>
+        <span style="--i: 12"><b>12</b></span>
       </div>
     </div>
 
-    <style>
-      html {
-        background: linear-gradient(to bottom, #cee79e, #6599ca);
-        background-size: cover;
-        font-family: "helvetica neue";
-        text-align: center;
-        font-size: 10px;
-      }
-
-      body {
-        margin: 0;
-        font-size: 2rem;
-        display: flex;
-        flex: 1;
-        min-height: 100vh;
-        align-items: center;
-      }
-
-      .clock {
-        width: 30rem;
-        height: 30rem;
-        border: 10px solid rgb(201, 242, 255);
-        border-radius: 50%;
-        margin: 50px auto;
-        position: relative;
-        padding: 2rem;
-        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #d15858,
-          inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
-      }
-
-      .clock-face {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transform: translateY(-3px);
-      }
-
-      .hand {
-        width: 50%;
-        height: 3px;
-        background: rgb(0, 0, 0);
-        position: absolute;
-        top: 50%;
-        transform-origin: 100%;
-        transform: rotate(90deg);
-        transition: all 0.5s;
-        transition-timing-function: cubic-bezier(0.1, 1.7, 0.57, 1);
-      }
-
-      .second-hand {
-        background: linear-gradient(
-          to right,
-          rgb(255, 0, 0) 10%,
-          rgb(145, 211, 255) 90%
-        );
-      }
-    </style>
-
     <script>
-      const second = document.querySelector(".second-hand");
-      const minute = document.querySelector(".min-hand");
-      const hour = document.querySelector(".hour-hand");
+      let hr = document.querySelector("#hr");
+      let mn = document.querySelector("#mn");
+      let sc = document.querySelector("#sc");
 
-      function setDate() {
-        const now = new Date();
+      setInterval(() => {
+        let day = new Date();
+        let hh = day.getHours() * 30;
+        let mm = day.getMinutes() * 6;
+        let ss = day.getSeconds() * 6;
 
-        const seconds = now.getSeconds();
-        const secondsDegrees = (seconds / 60) * 360 + 90;
-        second.style.transform = `rotate(${secondsDegrees}deg)`;
-
-        const mins = now.getMinutes();
-        const minsDegrees = (mins / 60) * 360 + 90;
-        minute.style.transform = `rotate(${minsDegrees}deg)`;
-
-        const hours = now.getHours();
-        const hoursDegrees = (hours / 12) * 360 + 90;
-        hour.style.transform = `rotate(${hoursDegrees}deg)`;
-
-        if (seconds === 59) {
-          second.style.transition = "all 0s";
-          minute.style.transition = "all 0s";
-          hour.style.transition = "all 0s";
-        }
-
-        if (seconds === 1) {
-          second.style.transition = "all 0.5s";
-          minute.style.transition = "all 0.5s";
-          hour.style.transition = "all 0.5s";
-        }
-      }
-
-      setInterval(setDate, 1000);
+        hr.style.transform = `rotateZ(${mm / 12}deg)`;
+        mn.style.transform = `rotateZ(${mm}deg)`;
+        sc.style.transform = `rotateZ(${ss}deg)`;
+      });
     </script>
   </body>
 </html>
